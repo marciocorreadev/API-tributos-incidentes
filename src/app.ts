@@ -1,4 +1,5 @@
 import express from 'express';
+import './functions/lerXLSX'
 
 const app = express();
 app.get('/index', (request, response) => {
@@ -6,5 +7,4 @@ app.get('/index', (request, response) => {
 });
 
 app.use(express.json())
-
 export { app }
