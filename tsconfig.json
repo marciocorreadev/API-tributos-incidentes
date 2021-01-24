@@ -20,7 +20,7 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
+    "baseUrl": ".",
     "paths": {
       "@controllers": [
         "src/controllers/*"
@@ -30,6 +30,9 @@
       ],
       "@config": [
         "src/config/*"
+      ],
+      "@db": [
+        "/src/db/*"
       ]
     }
   },
