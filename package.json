@@ -1,0 +1,24 @@
+{
+  "name": "API-tributos-incidentes",
+  "version": "1.0.0",
+  "description": "API que retorna dados tributários da Lei da Transparência – Lei 12.741/2012.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marciocorreadev/API-tributos-incidentes.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marciocorreadev/API-tributos-incidentes/issues"
+  },
+  "homepage": "https://github.com/marciocorreadev/API-tributos-incidentes#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  }
+}
