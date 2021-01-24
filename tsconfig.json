@@ -20,23 +20,18 @@
     "emitDecoratorMetadata": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": ".",
+    "baseUrl": "./src", 
+    "moduleResolution": "node",
     "paths": {
-      "@controllers": [
-        "src/controllers/*"
-      ],
-      "@models": [
-        "src/models/*"
-      ],
-      "@config": [
-        "src/config/*"
-      ],
-      "@db": [
-        "/src/db/*"
-      ]
+      "@bin/*": ["bin/*"],
+      "@db/*": ["db/*"],
+      "@config": ["config/index.ts"],
+      "@controllers/*": ["controllers/*"],
+      "@models/*": ["models/*"],
+      "@repositories/*": ["repositories/*"],
+      "@routes/*": ["routes/*"],
+      "@utils/*": ["utils/*"],
+      "@app": ["app.ts"]
     }
-  },
-  "include": [
-    "src/**/*.ts"
-  ]
+  }
 }

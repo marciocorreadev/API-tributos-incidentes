@@ -1,7 +1,9 @@
-import { connectDB } from "../db/database";
-import { app } from "../app";
+import app from "@app";
+import config from '@config';
+import { connectDB } from '@db/database';
 
-app.listen(3000)
+
+app.listen(config.app.port)
 connectDB()
 
-console.log('Server running at 3000')
+console.log(`Server running at ${config.app.port}`)
