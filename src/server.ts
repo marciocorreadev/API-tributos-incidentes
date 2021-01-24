@@ -1,5 +1,4 @@
 import express, { request } from 'express';
-
 const app = express();
 
 app.get('/index', (request, response) => {
