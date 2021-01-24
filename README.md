@@ -1,2 +1,2 @@
 # API-tributos-incidentes
-API que retorna dados tributários da lei de transparência de acordo com o IBPT.
+API que retorna dados tributários da Lei da Transparência – Lei 12.741/2012.
