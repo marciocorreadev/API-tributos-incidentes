@@ -4,7 +4,7 @@
   "description": "API que retorna dados tributários da Lei da Transparência – Lei 12.741/2012.",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify --clear src/server.ts"
+    "dev": "tsnd --respawn --transpile-only --ignore-watch node_modules --no-notify src/bin/server.ts"
   },
   "repository": {
     "type": "git",
