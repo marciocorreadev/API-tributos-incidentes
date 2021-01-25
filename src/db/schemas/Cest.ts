@@ -1,5 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose'
-import ICest from '@models/Cest'
+import ICest from '@models/cest'
 
 type Cest = Document & ICest;
 
@@ -18,6 +18,7 @@ const CestSchema = new Schema(
         },
         descricao: {
             type: String,
+            required: true,
             unique: true,
             trim: true,
         }

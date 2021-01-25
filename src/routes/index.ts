@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import IndexController from '@controllers/indexController'
+import IndexController from '@controllers/index'
 
 const router = Router()
 

@@ -2,7 +2,9 @@ import express from 'express'
 import helmet from 'helmet'
 import cors from 'cors'
 import bodyParser from 'body-parser'
-import indexRouter from '@routes/Index'
+import indexRouter from '@routes/index'
+import cestRouter from '@routes/cest'
+import ncmRouter from '@routes/ncm'
 
 const app = express()
 
@@ -10,10 +12,9 @@ app.use(helmet())
 app.use(cors())
 app.use(bodyParser.json())
 
-app.use(indexRouter)
+app.use('/', indexRouter)
+app.use('/', cestRouter)
+app.use('/', ncmRouter)
 
 export default app
 
-// import { xlsxToJSON } from './utils/converts'
-// const file = `${__dirname}..\\..\\TABELAS\\CEST\\cest.xlsx`
-// const data = xlsxToJSON(file)

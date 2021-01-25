@@ -31,6 +31,7 @@
       "@repositories/*": ["repositories/*"],
       "@routes/*": ["routes/*"],
       "@utils/*": ["utils/*"],
+      "@validator": ["validators/validator.ts"],
       "@app": ["app.ts"]
     }
   }

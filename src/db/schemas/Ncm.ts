@@ -40,4 +40,4 @@ const NcmSchema = new Schema(
     }
     )
     
-export default mongoose.model<Ncm>('Cest', NcmSchema)
+export default mongoose.model<Ncm>('Ncm', NcmSchema)

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import config from '@config'
-import NcmSchema from './schemas/Ncm'
+import NcmSchema from './schemas/ncm'
 
 function connectDB() {
     if (config.db.connectionString) {
@@ -9,7 +9,8 @@ function connectDB() {
             {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
-                useCreateIndex: false,
+                useCreateIndex: true,
+                useFindAndModify: false,
             })
     }
 }
