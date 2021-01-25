@@ -12,9 +12,9 @@ async function create(req: Request, res: Response) {
         if (!ncm || !descricao) throw ({ errors: "Dados inválidos.", status: 400 });
 
         ncm = format(ncm, 'ncm')
-        const createCest = await NcmRepository.create({ ncm, descricao });
+        const createNcm = await NcmRepository.create({ ncm, descricao });
 
-        res.status(201).json(createCest)
+        res.status(201).json(createNcm)
 
     } catch (e) {
         error(e, res, e?.status ? e.status : 500)
@@ -24,11 +24,11 @@ async function create(req: Request, res: Response) {
 async function get(req: Request, res: Response) {
     try {
 
-        const getCest = await NcmRepository.get();
+        const getNcm = await NcmRepository.get();
 
-        if (!getCest.length) throw ({ errors: "Nada encontrado", status: 404 });
+        if (!getNcm.length) throw ({ errors: "Não encontrado", status: 404 });
 
-        res.status(200).json(getCest)
+        res.status(200).json(getNcm)
 
     } catch (e) {
 
@@ -40,14 +40,14 @@ async function get(req: Request, res: Response) {
 async function getById(req: Request, res: Response) {
     try {
 
-        let { cest } = req.params
-        if (!cest) throw ({ errors: "Cest não informado.", status: 400 });
+        let { ncm } = req.params
+        if (!ncm) throw ({ errors: "Ncm não informado.", status: 400 });
 
-        const getCest = await NcmRepository.getById(cest);
+        const getNcm = await NcmRepository.getById(ncm);
 
-        if (!getCest.length) throw ({ errors: "Nada encontrado", status: 404 });
+        if (!getNcm.length) throw ({ errors: "Não encontrado", status: 404 });
 
-        res.status(200).json(getCest)
+        res.status(200).json(getNcm)
 
     } catch (e) {
         error(e, res, e?.status ? e.status : 500)
@@ -56,20 +56,18 @@ async function getById(req: Request, res: Response) {
 
 async function update(req: Request, res: Response) {
     try {
-        let Cest = req.params.cest
-        if (!Cest) throw ({ errors: "Cest não informado.", status: 400 });
+        let ncm = req.params.ncm
+        if (!ncm) throw ({ errors: "Ncm não informado.", status: 400 });
 
-        let { ncm, cest, descricao } = req.body
+        let { descricao } = req.body
         let data: any = {}
-        if (ncm) data.ncm = removeSynbols(ncm)
-        if (cest) data.cest = format(cest, 'cest')
         if (descricao) data.descricao = descricao;
 
-        const updateCest = await NcmRepository.update(Cest, data);
-        if (!updateCest) throw ({ errors: "Não atualizado.", status: 404 });
+        const updateNcm = await NcmRepository.update(ncm, data);
+        if (!updateNcm) throw ({ errors: "Não atualizado.", status: 404 });
 
-        const getCest = await NcmRepository.getById(data.cest);
-        res.status(200).json(getCest)
+        const getNcm = await NcmRepository.getById(ncm);
+        res.status(200).json(getNcm)
     } catch (e) {
         res.json(e)
         error(e, res, e?.status ? e.status : 500)
@@ -78,13 +76,13 @@ async function update(req: Request, res: Response) {
 
 async function remove(req: Request, res: Response) {
     try {
-        let cest = req.params.cest
-        if (!cest) throw ({ errors: "Cest não informado.", status: 400 });
+        let ncm = req.params.ncm
+        if (!ncm) throw ({ errors: "Ncm não informado.", status: 400 });
 
-        const removeCest = await NcmRepository.remove(cest);
-        if (!removeCest) throw ({ errors: "Não removido.", status: 404 });
+        const removeNcm = await NcmRepository.remove(ncm);
+        if (!removeNcm) throw ({ errors: "Não removido.", status: 404 });
 
-        res.status(200).json(removeCest)
+        res.status(200).json(removeNcm)
     } catch (e) {
         res.json(e)
         error(e, res, e?.status ? e.status : 500)

@@ -59,16 +59,15 @@ async function getById(req: Request, res: Response) {
 
 async function update(req: Request, res: Response) {
     try {
-        let Cest = req.params.cest
-        if (!Cest) throw ({ errors: "Cest não informado.", status: 400 });
+        let cest = req.params.cest
+        if (!cest) throw ({ errors: "Cest não informado.", status: 400 });
 
-        let { ncm, cest, descricao } = req.body
+        let { ncm, descricao } = req.body
         let data: any = {}
         if (ncm) data.ncm = removeSynbols(ncm)
-        if (cest) data.cest = format(cest, 'cest')
         if (descricao) data.descricao = descricao;
 
-        const updateCest = await CestRepository.update(Cest, data);
+        const updateCest = await CestRepository.update(cest, data);
         if (!updateCest) throw ({ errors: "Não atualizado.", status: 404 });
 
         const getCest = await CestRepository.getById(data.cest);
