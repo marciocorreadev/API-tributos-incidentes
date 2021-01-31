@@ -15,7 +15,7 @@ function index(request: Request, response: Response) {
             <body>
                 <h1> API para improtar dados da lei de transparência – Lei 12.741/2012.</h1>
 
-                <h2>Rotas NCM</h2>
+                <h2>Detalhes</h2>
                 <hr>
                 <p>codigo: código NCM para mercadorias ou NBS para serviços, verificar o campo “tipo”.</p>
                 <p>ex: Exceção do TIPI, deve ser utilizado com conjunto com o código NCM para encontra corretamente a alíquota a ser utilizada.</p>
