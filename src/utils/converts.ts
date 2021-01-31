@@ -1,15 +1,16 @@
-import Papa from "papaparse"
 var XLSX = require('xlsx')
+const csv = require('csv-parser')
+const fs = require('fs')
 
-const papaPromise = (importFile: any) => new Promise((resolve, reject) => {
-    Papa.parse(importFile, {
-        worker: true, header: true, dynamicTyping: true,
-        complete: results => resolve(results.data),
-        error: error => reject(error)
-    })
+const csvToJSON = async (file: any) => new Promise(resolve => {
+        const results: any = [];
+        fs.createReadStream(file)
+            .pipe(csv({ separator: ';' }))
+            .on('data', (data: any) => results.push(data))
+            .on('end', () => {
+                resolve(results);
+            });
 })
-
-const csvToJSON = async (file: any) => await papaPromise(file)
 
 const xlsxToJSON = (file: any) => {
     const arquive = XLSX.readFile(file);

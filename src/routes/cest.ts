@@ -4,6 +4,7 @@ import CestController from '@controllers/cest'
 const router = Router()
 router.get('/cest', CestController.get)
 router.get('/cest/:cest', CestController.getById)
+router.get('/cest/ncm/:ncm', CestController.getByNcm)
 router.post('/cest', CestController.create)
 router.put('/cest/:cest', CestController.update)
 router.delete('/cest/:cest', CestController.remove)

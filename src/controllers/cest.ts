@@ -26,8 +26,9 @@ async function create(req: Request, res: Response) {
 
 async function get(req: Request, res: Response) {
     try {
+        let { limit, skip } = req.query as any;
 
-        const getCest = await CestRepository.get();
+        const getCest = await CestRepository.get({},limit, skip);
         
         if (!getCest.length) throw ({ errors: "Nada encontrado", status: 404 });
 
@@ -51,6 +52,22 @@ async function getById(req: Request, res: Response) {
         if (!getCest.length) throw ({ errors: "Nada encontrado", status: 404 });
 
         res.status(200).json(getCest)
+
+    } catch (e) {
+        error(e, res, e?.status ? e.status : 500)
+    }
+}
+
+async function getByNcm(req: Request, res: Response) {
+    try {
+
+        let { ncm } = req.params
+        if (!ncm) throw ({ errors: "Ncm não informado.", status: 400 });
+
+        const cestsFull = await CestRepository.getByNcm({ ncm: { $regex: new RegExp('^' + ncm, 'gm') } })
+        const cestsInitial = await CestRepository.getByNcm({ ncm: { $regex: new RegExp('^' + ncm.slice(0, 4) + '$', 'gm') } })
+
+        res.status(200).json([...cestsFull, ...cestsInitial]);
 
     } catch (e) {
         error(e, res, e?.status ? e.status : 500)
@@ -93,4 +110,4 @@ async function remove(req: Request, res: Response) {
     }
 }
 
-export default { create, get, getById, update, remove }
+export default { create, get, getById, getByNcm, update, remove }

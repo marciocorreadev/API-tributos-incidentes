@@ -1,43 +1,59 @@
 import mongoose, { Document, Schema } from 'mongoose';
-import INcm from '@models/ncm'
+import INcm from '@models/Ncm'
 
-type Ncm  = Document & INcm;
+type Ncm = Document & INcm;
 
 const NcmSchema = new Schema(
     {
-        ncm : {
+        ncm: {
             type: String,
-            unique: true,
             required: true,
             trim: true,
         },
         descricao: {
             type: String,
-            unique: true,
+            required: true,
             trim: true,
         },
-        estados: [
-            {
-                estado: String,
-                tributos: {
-                    ex: String,
-                    tipo: String,
-                    federal: Number,
-                    importados: Number,
-                    estadual: Number,
-                    municipal: Number,
-                    vigenciaInicio: String,
-                    vigenciaFim: String,
-                    chave: String,
-                    versao: String,
-                    fonte: String,
-                }
-            }
-        ],
+        ex: {
+            type: String,
+            trim: true,
+        },
+        tipo: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        vigenciaInicio: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        vigenciaFim: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        chave: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        versao: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        fonte: {
+            type: String,
+            required: true,
+            trim: true,
+        },
+        estado: {}
     },
     {
         timestamps: true,
     }
-    )
-    
+)
+
 export default mongoose.model<Ncm>('Ncm', NcmSchema)

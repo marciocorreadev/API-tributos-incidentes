@@ -1,5 +1,5 @@
 function removeSynbols(code: string) {
-    return code.replace(/\D+/g, "");
+    return !code ? '0' : code.replace(/\D+/g, "");
 }
 
 function format(code: string, type: string) {

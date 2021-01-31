@@ -3,8 +3,8 @@ import NcmController from '@controllers/ncm'
 
 const router = Router()
 
-router.get('/ncm/', NcmController.get)
-router.get('/ncm/:ncm', NcmController.getById)
+router.get('/ncm/:uf?', NcmController.get)
+router.get('/ncm/:ncm/:uf?', NcmController.getById)
 router.put('/ncm/:ncm', NcmController.update)
 router.post('/ncm', NcmController.create)
 router.delete('/ncm/:ncm', NcmController.remove)
