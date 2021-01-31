@@ -87,6 +87,6 @@ async function importNcms() {
 
 }
 
-// importCests()
-// importNcms()
+importCests()
+importNcms()
 

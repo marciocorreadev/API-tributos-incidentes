@@ -17,7 +17,7 @@ app.use('/', cestRouter)
 app.use('/', ncmRouter)
 
 // Descomente a linha abaixo para importar planilhas locais
-import './utils/import'
+// import './utils/import'
 
 export default app
 
