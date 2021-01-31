@@ -14,14 +14,23 @@
 
 | Métodos  | Endereço  | Retorno |
 | ------------ |---------------|-----|
-| `GET`      | /        | Detalhes API  |
 | `GET`      | /ping       | Ping |
+| `GET`      | /        | Detalhes API  |
 
+
+```sh
+ get - /ping
+```
+```json
+{
+  "status": "OK",
+  "time": "03:49:47"
+}
+```
 
 ```sh
 > get - /
 ```
-
 <!DOCTYPE html>
   <html lang="pt-BR">
   <head>
@@ -33,32 +42,10 @@
       </style>
   </head>
   <body>
-      <h1> API para improtar dados da lei de transparência – Lei 12.741/2012.</h1>
-      <h2>Rotas NCM</h2>
-      <hr>
-      <p>codigo: código NCM para mercadorias ou NBS para serviços, verificar o campo “tipo”.</p>
-      <p>ex: Exceção do TIPI, deve ser utilizado com conjunto com o código NCM para encontracorretamente a alíquota a ser utilizada.</p>
-      <p>Tipo: Tipo do código, pode assumir 0 para NCM ou 1 para NBS, a antiga tabela LC 116 nãoexiste mais.</p>
-      <p>descricao: Descrição do NCM ou Tipo de Serviço.</p>
-      <p>nacional: Alíquota nacional, adotada se a origem da mercadoria for: 0,3,4,5</p>
-      <p>importado: Alíquota importado, adotada se a origem da mercadoria for: 1,2,6,7</p>
-      <p>estadual: Alíquota estadual.</p>
-      <p>municipal: Alíquota municipal quando prestação de serviços.</p>
-      <p>VigenciaInicio: Início da vigência da tabela.</p>
-      <p>VigenciaFim: Fim da vigência da tabela.</p>
-      <p>Chave: Chave única que identifica a tabela utilizada.</p>
-      <p>Versao: Versão atual da tabela.</p>
-      <p>Fonte: Fonte dos dados, fixo IBPT.</p>
-          </body>
+      <p>Detalhes da API</p>
 </html>
 
-> get - /ping
-```json
-{
-  "status": "OK",
-  "time": "03:49:47"
-}
-```
+
 
 
 ### NCM
@@ -72,7 +59,10 @@
 | `PATCH`      | /ncm/{codigoNcm}        | Editar |
 | `DELETE`      | /ncm/{codigoNcm}        | Deletar |
 
+```sh
 > Get - /ncm/AL?skip=10&limit=2
+```
+
 ```JSON
 [
   {
@@ -118,7 +108,10 @@
 ]
 ```
 
-> Get - /ncm/22021000
+```sh
+Get - /ncm/22021000
+```
+
 ```JSON
 [
  [
@@ -191,7 +184,10 @@
 ```
 
 
-> Get - /ncm/22021000/DF
+```sh
+Get - /ncm/22021000/DF
+```
+
 ```JSON
 [
   {
@@ -255,8 +251,11 @@
 ]
 ```
 
+```sh
+Post - /ncm
+```
 
-> Post - /ncm
+
 ```JSON
 {
     "ncm": "22021000",
@@ -280,9 +279,13 @@
   }
 ```
 
-> Put - /ncm/22021000
+```sh
+Put - /ncm/22021000
+```
 
-> Delete - /ncm/22021000
+```sh
+Delete - /ncm/22021000
+```
 
 ### CEST
 
@@ -294,7 +297,10 @@
 | `PUT`      | /cest/{codigoCest}        | Editar |
 | `DELETE`      | /cest/{codigoCest}        | Deletar |
 
-> Get - /cest?limit=2&skip=20
+```sh
+Get - /cest?limit=2&skip=20
+```
+
 ```JSON
 [
   {
@@ -311,7 +317,11 @@
   }
 ]
 ```
-> Get - /cest/ncm/22021000
+
+```sh
+Get - /cest/ncm/22021000
+```
+
 ```JSON
 [
   {
@@ -353,7 +363,10 @@
 ]
 ```
 
-> Get - /cest/0101600
+```sh
+Get - /cest/0101600
+```
+
 ```JSON
 [
   {
@@ -365,7 +378,11 @@
 ]
 ```
 
-> Post -  /ncm
+
+```sh
+Post -  /ncm
+```
+
 ```JSON
 {
 	"cest": "0101600",
@@ -374,13 +391,17 @@
 }
 ```
 
-> Put -  /ncm/0101600
+```sh
+Put -  /ncm/0101600
+```
+
 ```JSON
 {
 	"ncm": "22021000",
 	"descricao": "Suco Manga."
 }
 ```
-> Delete -  /ncm/0101600
 
-
+```sh
+Delete -  /ncm/0101600
+```
