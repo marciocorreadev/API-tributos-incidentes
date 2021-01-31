@@ -14,23 +14,10 @@
 
 | Métodos  | Endereço  | Retorno |
 | ------------ |---------------|-----|
-| `GET`      | /ping       | Ping |
 | `GET`      | /        | Detalhes API  |
+| `GET`      | /ping       | Ping |
 
-
-```sh
- get - /ping
-```
-```json
-{
-  "status": "OK",
-  "time": "03:49:47"
-}
-```
-
-```sh
 > get - /
-```
 <!DOCTYPE html>
   <html lang="pt-BR">
   <head>
@@ -46,6 +33,13 @@
 </html>
 
 
+> get - /ping
+```json
+{
+  "status": "OK",
+  "time": "03:49:47"
+}
+```
 
 
 ### NCM
@@ -59,10 +53,8 @@
 | `PATCH`      | /ncm/{codigoNcm}        | Editar |
 | `DELETE`      | /ncm/{codigoNcm}        | Deletar |
 
-```sh
-> Get - /ncm/AL?skip=10&limit=2
-```
 
+> Get - /ncm/AL?skip=10&limit=2
 ```JSON
 [
   {
@@ -108,10 +100,8 @@
 ]
 ```
 
-```sh
-Get - /ncm/22021000
-```
 
+> Get - /ncm/22021000
 ```JSON
 [
  [
@@ -184,10 +174,7 @@ Get - /ncm/22021000
 ```
 
 
-```sh
-Get - /ncm/22021000/DF
-```
-
+> Get - /ncm/22021000/DF
 ```JSON
 [
   {
@@ -251,11 +238,8 @@ Get - /ncm/22021000/DF
 ]
 ```
 
-```sh
-Post - /ncm
-```
 
-
+> Post - /ncm
 ```JSON
 {
     "ncm": "22021000",
@@ -279,13 +263,10 @@ Post - /ncm
   }
 ```
 
-```sh
-Put - /ncm/22021000
-```
 
-```sh
-Delete - /ncm/22021000
-```
+> Put - /ncm/22021000
+
+> Delete - /ncm/22021000
 
 ### CEST
 
@@ -297,10 +278,7 @@ Delete - /ncm/22021000
 | `PUT`      | /cest/{codigoCest}        | Editar |
 | `DELETE`      | /cest/{codigoCest}        | Deletar |
 
-```sh
-Get - /cest?limit=2&skip=20
-```
-
+> Get - /cest?limit=2&skip=20
 ```JSON
 [
   {
@@ -318,9 +296,8 @@ Get - /cest?limit=2&skip=20
 ]
 ```
 
-```sh
-Get - /cest/ncm/22021000
-```
+> Get - /cest/ncm/22021000
+
 
 ```JSON
 [
@@ -363,10 +340,7 @@ Get - /cest/ncm/22021000
 ]
 ```
 
-```sh
-Get - /cest/0101600
-```
-
+> Get - /cest/0101600
 ```JSON
 [
   {
@@ -379,10 +353,7 @@ Get - /cest/0101600
 ```
 
 
-```sh
-Post -  /ncm
-```
-
+> Post -  /ncm
 ```JSON
 {
 	"cest": "0101600",
@@ -391,10 +362,8 @@ Post -  /ncm
 }
 ```
 
-```sh
-Put -  /ncm/0101600
-```
 
+> Put -  /ncm/0101600
 ```JSON
 {
 	"ncm": "22021000",
@@ -402,6 +371,7 @@ Put -  /ncm/0101600
 }
 ```
 
-```sh
-Delete -  /ncm/0101600
-```
+
+> Delete -  /ncm/0101600
+
+
