@@ -8,7 +8,10 @@
     "allowJs": true,
     "outDir": "./dist",
     "rootDir": "./src",
+    "declaration": true,
+    "emitDeclarationOnly": true,
     "removeComments": true,
+    "isolatedModules": true,
     "strict": true,
     "typeRoots": [
       "./node_modules/@types",
@@ -25,14 +28,17 @@
     "paths": {
       "@bin/*": ["bin/*"],
       "@db/*": ["db/*"],
-      "@config": ["config/index.ts"],
+      "@config": ["config/index"],
       "@controllers/*": ["controllers/*"],
       "@models/*": ["models/*"],
       "@repositories/*": ["repositories/*"],
       "@routes/*": ["routes/*"],
       "@utils/*": ["utils/*"],
-      "@validator": ["validators/validator.ts"],
-      "@app": ["app.ts"]
+      "@validator": ["validators/validator"],
+      "@app": ["app"]
     }
-  }
+  },
+    "include": [
+      "src",
+    ]
 }

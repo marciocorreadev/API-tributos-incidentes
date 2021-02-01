@@ -1,6 +1,5 @@
 import mongoose from 'mongoose'
 import config from '@config'
-import NcmSchema from './schemas/ncm'
 
 function connectDB() {
     if (config.db.connectionString) {
@@ -15,4 +14,4 @@ function connectDB() {
     }
 }
 
-export { connectDB }
+export default connectDB 

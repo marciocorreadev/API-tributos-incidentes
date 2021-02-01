@@ -67,14 +67,16 @@ async function importNcms() {
                 try {
                     const getNcm: INcm[] = await NcmRepository.getById(data.ncm);
                     if (!getNcm.length) {
-                        console.log(`ncm ${data.ncm} cadastrado do zero`)
+                        console.log(`ncm ${data.ncm} cadastradoo`)
                         await NcmRepository.create(data)
                     } else {
                         const ncmExist = getNcm.find((n) =>  n.descricao === data.descricao && n.ex === data.ex && n.tipo === data.tipo)
                         if (!!ncmExist) {
                             await NcmRepository.updateByDesc(data.ncm, data.descricao, { estado: { ...data.estado, ...ncmExist.estado } })
+                            console.log(`ncm ${data.ncm} atualizado`)
                         } else {
                             await NcmRepository.create(data)
+                            console.log(`ncm ${data.ncm} cadastradoo`)
                         }
                     }
                     } catch (e) {
@@ -87,6 +89,6 @@ async function importNcms() {
 
 }
 
-importCests()
+// importCests()
 importNcms()
 
